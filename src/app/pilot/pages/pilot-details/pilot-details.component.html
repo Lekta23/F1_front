@@ -1,0 +1,30 @@
+<p>pilot-details works!</p>
+
+{{ pilot$ | async | json }}
+
+<mat-card class="example-card" *ngIf="pilot$ | async; let pilot">
+  <mat-card-header>
+    <mat-card-title
+      >{{ pilot.nom | titlecase }}
+      {{ pilot.prenom | uppercase }}</mat-card-title
+    >
+    <mat-card-subtitle>{{ pilot.nationalite | lowercase }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <ul>
+      <li><b>Class :</b> {{ pilot.equipe }}</li>
+      <li><b>Date of birth :</b> {{ pilot.dateOfBirth }}</li>
+    </ul>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="deletePilot(pilot.id)">
+      Delete
+    </button>
+    <button mat-raised-button color="primary" (click)="updatePilot(pilot)">
+      Update
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<button mat-raised-button color="warn" (click)="goBack()">Go Back</button>

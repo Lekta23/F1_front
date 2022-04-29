@@ -1,0 +1,41 @@
+
+<!-- {{ pilot$ | async | json }} -->
+
+<table mat-table [dataSource]="pilot$" class="mat-elevation-z8">
+  <!-- Name Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>N°</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.id }}
+      {{ setIds(element.id) }}
+    </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="nom">
+    <th mat-header-cell *matHeaderCellDef>NOM</th>
+    <td mat-cell *matCellDef="let element">{{ element.nom }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="prenom">
+    <th mat-header-cell *matHeaderCellDef>PRENOM</th>
+    <td mat-cell *matCellDef="let element">{{ element.prenom }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: displayedColumns"
+    (click)="showPilotDetails(row)"
+    class="clickable"
+  ></tr>
+</table>
+
+<br />
+
+<button mat-raised-button color="primary" (click)="createPilot()">
+  Create
+</button>
+
+<br />

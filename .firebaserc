@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "f1-app-5fae6": {
+      "hosting": {
+        "F1_front": [
+          "f1-app-5fae6"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "f1-app-5fae6"
+  }
+}
